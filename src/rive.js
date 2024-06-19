@@ -3,6 +3,12 @@ const stateMachine = "Floor 2";
 // Change marble's color [0, 1 , 2, 3]
 let playerID = 0; // Var to change player
 
+const lessons = 5; // Number of lessons
+const inputLessonsDone = []; // Lessons status
+const inputLessonsProgress = []; // Lessons progress
+const inputIsLessonsHover = []; // Lesson pointer hover
+const inputLessonsTrigger = []; // Lesson trigger movement
+
 const riveInstance = new rive.Rive({
 	src: "src/floor-2.riv", //get rive file
 	canvas: document.getElementById("rive"), //get correct canvas
@@ -17,6 +23,34 @@ const riveInstance = new rive.Rive({
 		const inputs = riveInstance.stateMachineInputs(stateMachine);
 		playerSelector = inputs.find((i) => i.name === "playerProfile");
 		playerSelector.value = playerID;
+
+		for (let i = 1; i <= lessons; i++) {
+			// Get lesson done status
+			// inputLessonsDone[0].value = true; (true, false)
+			inputLessonsDone.push(
+				inputs.find((input) => input.name === `isLesson${i}Done`)
+			);
+
+			// Get lesson progress
+			// inputLessonsProgress[0].value = 20; (0-100)
+			inputLessonsProgress.push(
+				inputs.find((input) => input.name === `Lesson progress ${i}`)
+			);
+
+			// Hover effect
+			// inputIsLessonsHover[0].value = true (true, false)
+			inputIsLessonsHover.push(
+				inputs.find((input) => input.name === `Lesson ${i} Hover`)
+			);
+
+			// Triggers marble animation
+			// inputLessonsTrigger[0].fire()
+			inputLessonsTrigger.push(
+				inputs.find((input) => input.name === `Trigger Lesson ${i}`)
+			);
+		}
+		// Trigger marble to next level
+		triggerNextLevel = inputs.find((i) => i.name === "Trigger Next Level");
 	},
 });
 
