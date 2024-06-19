@@ -82,6 +82,9 @@ const eventFire = (riveEvent) => {
 		case "OnClick":
 			console.log("clicked");
 			break;
+		default:
+			console.log("Unhandled event:", eventName, "\n", riveEvent);
+			break;
 	}
 };
 
