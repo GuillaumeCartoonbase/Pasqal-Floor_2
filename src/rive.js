@@ -51,6 +51,9 @@ const riveInstance = new rive.Rive({
 		}
 		// Trigger marble to next level
 		triggerNextLevel = inputs.find((i) => i.name === "Trigger Next Level");
+
+		inputLessonsCounter = inputs.find((i) => i.name === "lessonCounter");
+		inputMarbleHover = inputs.find((i) => i.name === "marble hovering");
 	},
 });
 
