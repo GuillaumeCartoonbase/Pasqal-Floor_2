@@ -12,12 +12,6 @@ const riveInstance = new rive.Rive({
 		const inputs = riveInstance.stateMachineInputs("State");
 		// myInput = inputs.find((i) => i.name === inputName);
 		// myInput.value = true;
-
-		// riveInstance.setTextRunValue(textRun, newString);
-	},
-
-	onStateChange: (e) => {
-		console.log(e.data[0]); // Get the current timeline name
 	},
 });
 
@@ -39,8 +33,3 @@ const eventFire = (riveEvent) => {
 };
 
 riveInstance.on(rive.EventType.RiveEvent, eventFire);
-
-// Nested inputs setup
-//riveInstance.setNumberStateAtPath(inputName, number, path)
-//riveInstance.setBooleanStateAtPath(inputName, boolean, path)
-//riveInstance.fireStateAtPath(inputName, path)
