@@ -1,5 +1,8 @@
 const stateMachine = "Floor 2";
 
+// Change marble's color [0, 1 , 2, 3]
+let playerID = 0; // Var to change player
+
 const riveInstance = new rive.Rive({
 	src: "src/floor-2.riv", //get rive file
 	canvas: document.getElementById("rive"), //get correct canvas
@@ -12,6 +15,8 @@ const riveInstance = new rive.Rive({
 		riveInstance.resizeDrawingSurfaceToCanvas();
 
 		const inputs = riveInstance.stateMachineInputs(stateMachine);
+		playerSelector = inputs.find((i) => i.name === "playerProfile");
+		playerSelector.value = playerID;
 	},
 });
 
