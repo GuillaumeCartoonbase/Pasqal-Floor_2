@@ -108,3 +108,11 @@ const eventFire = (riveEvent) => {
 };
 
 riveInstance.on(rive.EventType.RiveEvent, eventFire);
+
+const lessonCounter = () => {
+	let total = 0;
+	for (let i = 0; i < lessons; i++) {
+		total += inputLessonsDone[i].value == true ? 1 : 0;
+	}
+	return total;
+};
