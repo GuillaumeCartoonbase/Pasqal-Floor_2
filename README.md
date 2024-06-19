@@ -1,4 +1,4 @@
-# Floor 1
+# Floor 2
 
 [Live demo](https://guillaumecartoonbase.github.io/Pasqal-Floor_2/)
 
