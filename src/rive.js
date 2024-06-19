@@ -1,8 +1,8 @@
 const riveInstance = new rive.Rive({
-	src: "src/.riv", //get rive file
+	src: "src/floor-2.riv", //get rive file
 	canvas: document.getElementById("rive"), //get correct canvas
 	autoplay: true,
-	stateMachines: "State Machine 1", // get correct stateMachine
+	stateMachines: "Floor 2", // get correct stateMachine
 	automaticallyHandleEvents: true, // Automatically handle RiveHTTPEvents
 
 	onLoad: () => {
