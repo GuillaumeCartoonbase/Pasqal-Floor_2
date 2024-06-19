@@ -82,6 +82,15 @@ const eventFire = (riveEvent) => {
 		case "OnClick":
 			console.log("clicked");
 			break;
+
+		// Levitate marble when on a lesson, not in movement
+		case "marbleLevitateON":
+			inputMarbleHover.value = true;
+			break;
+		case "marbleLevitateOFF":
+			inputMarbleHover.value = false;
+			break;
+
 		default:
 			console.log("Unhandled event:", eventName, "\n", riveEvent);
 			break;
