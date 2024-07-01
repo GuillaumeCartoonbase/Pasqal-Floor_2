@@ -71,7 +71,6 @@ const eventFire = (riveEvent) => {
 	const eventData = riveEvent.data;
 	const eventName = eventData.name;
 	const eventProperties = eventData.properties;
-	console.log(eventName);
 	switch (eventName.split("-")[0]) {
 		// Fire marble movements from card's buttons
 		case "cardbutton":
@@ -112,6 +111,12 @@ const eventFire = (riveEvent) => {
 			riveInstance
 				.stateMachineInputs(stateMachine)
 				.find((i) => i.name === `isOn${lessonN}`).value = whereAmI();
+			break;
+
+		// Lesson launcher
+		case "LessonEvent":
+		case "NextLevel":
+			console.log(eventName);
 			break;
 
 		default:
