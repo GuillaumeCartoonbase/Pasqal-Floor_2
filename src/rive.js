@@ -101,6 +101,22 @@ const eventFire = (riveEvent) => {
 			inputMarbleHover.value = false;
 			break;
 
+		// Anim on lessons
+		case "On":
+		case "Off":
+			const whereAmI = () => {
+				e = eventName.slice(0, -2);
+				if (e === "On") return true;
+				if (e === "Off") return false;
+				return false;
+			};
+
+			let lessonN = eventName.slice(-1);
+			riveInstance
+				.stateMachineInputs(stateMachine)
+				.find((i) => i.name === `isOn${lessonN}`).value = whereAmI();
+			break;
+
 		default:
 			console.log("Unhandled event:", eventName, "\n", riveEvent);
 			break;
