@@ -89,9 +89,6 @@ const eventFire = (riveEvent) => {
 		case "OnHoverExit":
 			document.body.style.cursor = "auto";
 			break;
-		case "OnClick":
-			console.log("clicked");
-			break;
 
 		// Levitate marble when on a lesson, not in movement
 		case "marbleLevitateON":
