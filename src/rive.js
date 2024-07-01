@@ -3,7 +3,7 @@ const stateMachine = "Floor 2";
 // Change marble's color [0, 1 , 2, 3]
 let playerID = 0; // Var to change player
 
-const lessons = 5; // Number of lessons
+const lessons = 4; // Number of lessons
 const inputLessonsDone = []; // Lessons status
 const inputLessonsProgress = []; // Lessons progress
 const inputIsLessonsHover = []; // Lesson pointer hover
