@@ -78,6 +78,8 @@ const eventFire = (riveEvent) => {
 	const eventData = riveEvent.data;
 	const eventName = eventData.name;
 	const eventProperties = eventData.properties;
+	let lessonN = eventName.slice(-1);
+
 	switch (eventName.split("-")[0]) {
 		// Fire marble movements from card's buttons
 		case "cardbutton":
@@ -109,18 +111,20 @@ const eventFire = (riveEvent) => {
 
 		// Anim on lessons
 		case "On":
-		case "Off":
-			const whereAmI = () => {
-				e = eventName.slice(0, -2);
-				if (e === "On") return true;
-				if (e === "Off") return false;
-				return false;
-			};
+			riveInstance.setBooleanStateAtPath(
+				"lessonHover",
+				true,
+				`Lesson ${eventName.slice(-1)}`
+			);
 
-			let lessonN = eventName.slice(-1);
 			riveInstance
 				.stateMachineInputs(stateMachine)
-				.find((i) => i.name === `isOn${lessonN}`).value = whereAmI();
+				.find((i) => i.name === `isOn${lessonN}`).value = true;
+			break;
+		case "Off":
+			riveInstance
+				.stateMachineInputs(stateMachine)
+				.find((i) => i.name === `isOn${lessonN}`).value = false;
 			break;
 
 		// Lesson launcher
