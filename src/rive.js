@@ -124,6 +124,12 @@ const eventFire = (riveEvent) => {
 				.find((i) => i.name === `isOn${lessonN}`).value = true;
 			break;
 		case "Off":
+			riveInstance.setBooleanStateAtPath(
+				"lessonHover",
+				false,
+				`Lesson ${eventName.slice(-1)}`
+			);
+
 			riveInstance
 				.stateMachineInputs(stateMachine)
 				.find((i) => i.name === `isOn${lessonN}`).value = false;
