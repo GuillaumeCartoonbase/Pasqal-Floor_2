@@ -80,7 +80,9 @@ const eventFire = (riveEvent) => {
 	const eventProperties = eventData.properties;
 	let lessonN = eventName.slice(-1);
 
-	switch (eventName.split("-")[0]) {
+	const eventKey = eventName.split("-")[0];
+
+	switch (eventKey) {
 		// Fire marble movements from card's buttons
 		case "cardbutton":
 			//  eventName.split(" ")[0] ===
