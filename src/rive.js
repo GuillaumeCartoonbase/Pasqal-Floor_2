@@ -1,5 +1,6 @@
 const stateMachine = "Floor 2";
 
+// Create Rive
 const riveInstance = new rive.Rive({
 	src: "src/floor-2.riv", //get rive file
 	canvas: document.getElementById("rive"), //get correct canvas
