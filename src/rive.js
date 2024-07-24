@@ -1,8 +1,5 @@
 const stateMachine = "Floor 2";
 
-// Change marble's color [0, 1 , 2, 3]
-let playerID = 0; // Var to change player
-
 const lessons = 4; // Number of lessons
 const inputLessonsStarted = []; // Lessons status
 const inputLessonsDone = []; // Lessons status
@@ -21,6 +18,9 @@ const riveInstance = new rive.Rive({
 		riveInstance.resizeDrawingSurfaceToCanvas();
 
 		const inputs = riveInstance.stateMachineInputs(stateMachine);
+
+		// Change marble's color [0, 1 , 2, 3]
+		let playerID = 0; // Var to change player
 		playerSelector = inputs.find((i) => i.name === "playerProfile");
 		playerSelector.value = playerID;
 
