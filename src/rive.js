@@ -78,24 +78,15 @@ const eventFire = (riveEvent) => {
 	switch (eventKey) {
 		// Fire marble movements from card's buttons
 		case "cardbutton":
-			//  eventName.split(" ")[0] ===
-			let cardButton = eventProperties.cardButton;
-			for (let i = 0; i < lessons; i++) {
-				if (cardButton === i + 1) return inputLessonsTrigger[i].fire();
-			}
-			if (cardButton === 200) return triggerNextLevel.fire();
-			break;
-
-		// Levitate marble when on a lesson, not in movement
-		case "marbleLevitateON":
-			inputMarbleHover.value = true;
-			break;
-		case "marbleLevitateOFF":
-			inputMarbleHover.value = false;
+			if (eventName.split("-")[1] == "next") return triggerNextLevel.fire();
+			if (Number.isInteger(Number(eventIndex)))
+				return inputLessonsTrigger[eventIndex - 1].fire();
 			break;
 
 		// Anim on lessons
 		case "On":
+			inputMarbleHover.value = true;
+
 			riveInstance.setBooleanStateAtPath(
 				"lessonHover",
 				true,
@@ -107,6 +98,8 @@ const eventFire = (riveEvent) => {
 				.find((i) => i.name === `isOn${eventIndex}`).value = true;
 			break;
 		case "Off":
+			inputMarbleHover.value = false;
+
 			riveInstance.setBooleanStateAtPath(
 				"lessonHover",
 				false,
