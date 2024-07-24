@@ -12,50 +12,51 @@ const riveInstance = new rive.Rive({
 	autoplay: true,
 	stateMachines: stateMachine, // get correct stateMachine
 	automaticallyHandleEvents: true, // Automatically handle RiveHTTPEvents
-
-	onLoad: () => {
-		// Prevent a blurry canvas by using the device pixel ratio
-		riveInstance.resizeDrawingSurfaceToCanvas();
-
-		const inputs = riveInstance.stateMachineInputs(stateMachine);
-
-		// Change marble's color [0, 1 , 2, 3]
-		let playerID = 0; // Var to change player
-		playerSelector = inputs.find((i) => i.name === "playerProfile");
-		playerSelector.value = playerID;
-
-		for (let i = 1; i <= lessons; i++) {
-			// Get lesson started status
-			// inputLessonsStarted[0].value = true; (true, false)
-			inputLessonsStarted.push(
-				inputs.find((input) => input.name === `isLesson${i}Started`)
-			);
-
-			// Get lesson done status
-			// inputLessonsDone[0].value = true; (true, false)
-			inputLessonsDone.push(
-				inputs.find((input) => input.name === `isLesson${i}Done`)
-			);
-
-			// Hover effect
-			// inputIsLessonsHover[0].value = true (true, false)
-			inputIsLessonsHover.push(
-				inputs.find((input) => input.name === `Lesson ${i} Hover`)
-			);
-
-			// Triggers marble animation
-			// inputLessonsTrigger[0].fire()
-			inputLessonsTrigger.push(
-				inputs.find((input) => input.name === `Trigger Lesson ${i}`)
-			);
-		}
-		// Trigger marble to next level
-		triggerNextLevel = inputs.find((i) => i.name === "Trigger Next Level");
-
-		inputLessonsCounter = inputs.find((i) => i.name === "lessonCounter");
-		inputMarbleHover = inputs.find((i) => i.name === "marble hovering");
-	},
+	onLoad: onLoadHandler,
 });
+
+function onLoadHandler() {
+	// Prevent a blurry canvas by using the device pixel ratio
+	riveInstance.resizeDrawingSurfaceToCanvas();
+
+	const inputs = riveInstance.stateMachineInputs(stateMachine);
+
+	// Change marble's color [0, 1 , 2, 3]
+	let playerID = 0; // Var to change player
+	playerSelector = inputs.find((i) => i.name === "playerProfile");
+	playerSelector.value = playerID;
+
+	for (let i = 1; i <= lessons; i++) {
+		// Get lesson started status
+		// inputLessonsStarted[0].value = true; (true, false)
+		inputLessonsStarted.push(
+			inputs.find((input) => input.name === `isLesson${i}Started`)
+		);
+
+		// Get lesson done status
+		// inputLessonsDone[0].value = true; (true, false)
+		inputLessonsDone.push(
+			inputs.find((input) => input.name === `isLesson${i}Done`)
+		);
+
+		// Hover effect
+		// inputIsLessonsHover[0].value = true (true, false)
+		inputIsLessonsHover.push(
+			inputs.find((input) => input.name === `Lesson ${i} Hover`)
+		);
+
+		// Triggers marble animation
+		// inputLessonsTrigger[0].fire()
+		inputLessonsTrigger.push(
+			inputs.find((input) => input.name === `Trigger Lesson ${i}`)
+		);
+	}
+	// Trigger marble to next level
+	triggerNextLevel = inputs.find((i) => i.name === "Trigger Next Level");
+
+	inputLessonsCounter = inputs.find((i) => i.name === "lessonCounter");
+	inputMarbleHover = inputs.find((i) => i.name === "marble hovering");
+}
 
 // Resize the drawing surface if the window resizes
 window.addEventListener(
