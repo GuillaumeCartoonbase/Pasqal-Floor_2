@@ -86,16 +86,6 @@ const eventFire = (riveEvent) => {
 			if (cardButton === 200) return triggerNextLevel.fire();
 			break;
 
-		case "OnHoverEnter":
-			document.body.style.cursor = "pointer";
-			break;
-		case "OnHoverExit":
-			document.body.style.cursor = "auto";
-			break;
-		case "OnClick":
-			// Custom logic for click event
-			break;
-
 		// Levitate marble when on a lesson, not in movement
 		case "marbleLevitateON":
 			inputMarbleHover.value = true;
@@ -132,6 +122,16 @@ const eventFire = (riveEvent) => {
 		case "LessonEvent":
 		case "NextLevel":
 			console.log(eventName);
+			break;
+
+		case "OnHoverEnter":
+			document.body.style.cursor = "pointer";
+			break;
+		case "OnHoverExit":
+			document.body.style.cursor = "auto";
+			break;
+		case "OnClick":
+			// Custom logic for click event
 			break;
 
 		default:
