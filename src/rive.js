@@ -45,7 +45,6 @@ function onLoadHandler() {
 		);
 
 		// Hover effect
-		// inputIsLessonsHover[0].value = true (true, false)
 		inputIsLessonsHover.push(
 			inputs.find((input) => input.name === `Lesson ${i} Hover`)
 		);
