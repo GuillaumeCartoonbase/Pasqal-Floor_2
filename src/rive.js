@@ -29,6 +29,8 @@ function onLoadHandler() {
 	playerSelector = inputs.find((i) => i.name === "playerProfile");
 	playerSelector.value = playerID;
 
+	inputMarbleHover = inputs.find((i) => i.name === "marble hovering");
+
 	for (let i = 1; i <= lessons; i++) {
 		// Get lesson started status
 		// inputLessonsStarted[0].value = true; (true, false)
@@ -58,7 +60,6 @@ function onLoadHandler() {
 	triggerNextLevel = inputs.find((i) => i.name === "Trigger Next Level");
 
 	inputLessonsCounter = inputs.find((i) => i.name === "lessonCounter");
-	inputMarbleHover = inputs.find((i) => i.name === "marble hovering");
 }
 
 // Resize the drawing surface if the window resizes
