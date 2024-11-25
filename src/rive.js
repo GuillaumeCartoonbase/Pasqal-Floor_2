@@ -59,6 +59,13 @@ function onLoadHandler() {
 	triggerNextLevel = inputs.find((i) => i.name === "Trigger Next Level");
 
 	inputLessonsCounter = inputs.find((i) => i.name === "lessonCounter");
+
+	// total lessons number
+	riveInstance.setTextRunValueAtPath(
+		"lessonsTotal",
+		lessons.toString(),
+		"compteur"
+	);
 }
 
 // Resize the drawing surface if the window resizes
