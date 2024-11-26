@@ -60,6 +60,9 @@ function onLoadHandler() {
 
 	inputLessonsCounter = inputs.find((i) => i.name === "lessonCounter");
 
+	// number of lesson checkers
+	riveInstance.setNumberStateAtPath("nLesson", lessons, "compteur");
+
 	// total lessons number
 	riveInstance.setTextRunValueAtPath(
 		"lessonsTotal",
